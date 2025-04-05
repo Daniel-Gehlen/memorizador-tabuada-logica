@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorizador de Tabelas-Verdade</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Memorizador de Tabelas-Verdade</h1>
+            <p>Aprenda operadores lógicos através de tabelas-verdade interativas</p>
+        </header>
+
+        <main>
+            <section class="controls">
+                <button id="show-all-btn">Mostrar Todas Tabelas</button>
+                <button id="practice-btn">Modo Prática</button>
+                <button id="quiz-btn">Teste Rápido</button>
+                <button id="tautology-btn">Tautologias</button>
+                <button id="propositions-btn">Proposições</button>
+            </section>
+
+            <section class="tables-section">
+                <!-- Tabelas serão geradas dinamicamente via JavaScript -->
+            </section>
+
+            <section class="practice-section hidden">
+                <div class="exercise">
+                    <h3>Complete a Tabela-Verdade</h3>
+                    <div class="exercise-table"></div>
+                    <button id="check-answer">Verificar Resposta</button>
+                    <div class="feedback"></div>
+                </div>
+            </section>
+
+            <section class="quiz-section hidden">
+                <div class="quiz-question">
+                    <h3>Qual o resultado de p → q quando p=V e q=F?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option">V</button>
+                        <button class="quiz-option">F</button>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                    <div class="quiz-score">Acertos: 0/0</div>
+                </div>
+            </section>
+
+            <section class="tautology-section hidden">
+                <div class="tautology-content">
+                    <h2>Tautologias</h2>
+                    
+                    <div class="definition-card">
+                        <h3>Definição</h3>
+                        <p>"Tautologia é uma proposição sempre verdadeira, independente dos valores das partes que a compõem."</p>
+                    </div>
+                    
+                    <div class="memory-tip">
+                        <h3>Macete Visual</h3>
+                        <p>Imagine um coringa do baralho (sempre serve, não perde nunca).</p>
+                        <p class="highlight">"Tautologia é o super-herói da lógica: nunca é derrotado pela falsidade!"</p>
+                    </div>
+                    
+                    <div class="example">
+                        <h3>Exemplo Clássico: Princípio do Terceiro Excluído</h3>
+                        <p>Fórmula: p ∨ ¬p ("p OU não-p")</p>
+                        <div class="example-table"></div>
+                        <p class="explanation">Por que é tautologia? Não há como p e ¬p serem falsos ao mesmo tempo. Um dos dois sempre será verdadeiro.</p>
+                    </div>
+                    
+                    <div class="association-technique">
+                        <h3>Técnica de Associação</h3>
+                        <p>Ligue tautologias a frases do cotidiano que são sempre verdadeiras:</p>
+                        <ul>
+                            <li>"Ou chove ou não chove."</li>
+                            <li>"Ou você está vivo ou não está."</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="patterns">
+                        <h3>Padrões para Identificar Tautologias</h3>
+                        <ul>
+                            <li><strong>Padrão 1:</strong> Se a proposição contém (p ∨ ¬p), é tautologia.</li>
+                            <li><strong>Padrão 2:</strong> Se a tabela-verdade tem todas as linhas = V, é tautologia.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exercise">
+                        <h3>Exercício Prático</h3>
+                        <p>Verifique se é tautologia: (p → q) ∨ p</p>
+                        <button id="show-tautology-solution">Mostrar Solução</button>
+                        <div class="solution hidden"></div>
+                    </div>
+                    
+                    <div class="contrast">
+                        <h3>Contraste com Outros Conceitos</h3>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Conceito</th>
+                                <th>Definição</th>
+                                <th>Exemplo</th>
+                            </tr>
+                            <tr>
+                                <td>Tautologia</td>
+                                <td>Sempre V</td>
+                                <td>p ∨ ¬p</td>
+                            </tr>
+                            <tr>
+                                <td>Contradição</td>
+                                <td>Sempre F</td>
+                                <td>p ∧ ¬p</td>
+                            </tr>
+                            <tr>
+                                <td>Contingência</td>
+                                <td>Pode ser V ou F</td>
+                                <td>p → q</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="propositions-section hidden">
+                <div class="propositions-content">
+                    <h2>O que NÃO é uma Proposição Lógica</h2>
+                    
+                    <div class="definition-card">
+                        <h3>Regra Geral</h3>
+                        <p>"Se não é possível atribuir Verdadeiro (V) ou Falso (F), não é proposição."</p>
+                    </div>
+                    
+                    <div class="examples">
+                        <h3>Exemplos de Frases que Não São Proposições</h3>
+                        <ul>
+                            <li><strong>Perguntas:</strong> "Por que você está aqui?"</li>
+                            <li><strong>Ordens:</strong> "Feche a porta!"</li>
+                            <li><strong>Exclamações:</strong> "Que dia difícil!"</li>
+                            <li><strong>Paradoxos:</strong> "Esta frase é falsa."</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="memory-technique">
+                        <h3>Como Memorizar? Use o Acrônimo "P.O.V."</h3>
+                        <table class="acronym-table">
+                            <tr>
+                                <th>Letra</th>
+                                <th>Significado</th>
+                                <th>Exemplo</th>
+                            </tr>
+                            <tr>
+                                <td>P</td>
+                                <td>Perguntas</td>
+                                <td>"Qual seu nome?"</td>
+                            </tr>
+                            <tr>
+                                <td>O</td>
+                                <td>Ordens/Exclamações</td>
+                                <td>"Pare agora!" / "Uau!"</td>
+                            </tr>
+                            <tr>
+                                <td>V</td>
+                                <td>Variáveis indefinidas</td>
+                                <td>"y > 3" (sem valor para y)</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="final-tip">
+                        <h3>Dica Final</h3>
+                        <p class="highlight">Proposições lógicas são como fatos verificáveis. Se não dá para "tirar foto" da verdade ou falsidade, não é proposição!</p>
+                    </div>
+                    
+                    <div class="practice">
+                        <h3>Exercício de Classificação</h3>
+                        <p>Classifique as seguintes frases como Proposição (P) ou Não-Proposição (N):</p>
+                        <ul class="classification-exercise">
+                            <li>"2 + 2 = 4" <button class="classify-btn" data-answer="P">Verificar</button></li>
+                            <li>"Estude lógica!" <button class="classify-btn" data-answer="N">Verificar</button></li>
+                            <li>"x > 5" (sem valor para x) <button class="classify-btn" data-answer="N">Verificar</button></li>
+                            <li>"A neve é branca." <button class="classify-btn" data-answer="P">Verificar</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="memory-tips">
+                <h2>Macetes para Memorização</h2>
+                <div class="tips-container">
+                    <div class="tip-card">
+                        <h3>Negação (¬)</h3>
+                        <p>"Inverte o valor" - o que é V vira F e vice-versa</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Conjunção (∧)</h3>
+                        <p>"E exige perfeição" - só é V quando ambos são V</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Disjunção (∨)</h3>
+                        <p>"OU é inclusivo" - só é F quando ambos são F</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Condicional (→)</h3>
+                        <p>"Vera Fischer é Falsa" - só é F quando V→F</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Bicondicional (↔)</h3>
+                        <p>"Gosta de iguais" - só é V quando ambos valores são iguais</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
